@@ -15,3 +15,6 @@ CarbonSense AI is a fully software-based carbon intelligence engine that:
  Predicts future carbon emissions
  Generates simple optimization suggestions
 
+
+![WhatsApp Image 2026-03-03 at 20 57 06](https://github.com/user-attachments/assets/220ae5e7-5ee7-4c55-94d8-95016f7c00e5)
+
