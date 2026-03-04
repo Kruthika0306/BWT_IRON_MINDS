@@ -7,8 +7,8 @@ st.title("")
 
 @st.cache_data
 def load_data():
-    data_path = Path(__file__).resolve().parent / "indian_city_carbon_dataset.xlsx"
-    return pd.read_excel(data_path)
+   data_path = Path(r"C:\Users\athul\Documents\trae_projects\carbonfootprint\indian_city_carbon_dataset (1).csv")
+   return pd.read_csv(data_path, encoding="utf-8")
 
 data = None
 data_load_error = None
