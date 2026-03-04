@@ -75,3 +75,5 @@ else:
                     st.warning("Moderate warning")
                 else:
                     st.error("Suggest avoiding travel")
+
+               "C:\Users\WIN11 PRO 23H2\Downloads\WhatsApp Image 2026-03-04 at 16.10.39.jpeg"
