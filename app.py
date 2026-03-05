@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="EcoTrack Pro", layout="wide")
 
-# ---------------- CUSTOM STYLING ---------------- #
+
 st.markdown("""
     <style>
     .stApp {
@@ -50,7 +50,6 @@ st.markdown("""
 
 st.title("🌍 EcoTrack Pro - Smart Carbon Intelligence Dashboard")
 
-# ---------------- LOAD DATA ---------------- #
 @st.cache_data
 def load_data():
     return pd.read_csv("dataset.csv")
@@ -61,12 +60,11 @@ except Exception as e:
     st.error(f"Dataset Load Error: {e}")
     st.stop()
 
-# ---------------- SIDEBAR ---------------- #
 st.sidebar.header("🔍 City Selection")
 city1 = st.sidebar.selectbox("Select Primary City", sorted(data["City"].unique()))
 city2 = st.sidebar.selectbox("Compare With (Optional)", ["None"] + sorted(data["City"].unique()))
 
-# ---------------- CALCULATION FUNCTION ---------------- #
+
 def calculate_emissions(row):
     electricity = row["Avg_Electricity_kWh"] * 0.82
     transport = row["Avg_Transport_Fuel_L"] * 2.31
@@ -84,11 +82,10 @@ def calculate_emissions(row):
         "Total": total
     }
 
-# ---------------- MAIN CITY DATA ---------------- #
 city_data = data[data["City"] == city1].iloc[0]
 emissions = calculate_emissions(city_data)
 
-# ---------------- METRICS DISPLAY ---------------- #
+
 st.subheader(f"📊 Carbon Breakdown for {city1}")
 
 cols = st.columns(5)
@@ -98,7 +95,7 @@ for col, (label, value) in zip(cols, list(emissions.items())[:-1]):
 st.markdown("---")
 st.metric("🌡 Total Emission", f"{emissions['Total']:.2f} kg CO₂e")
 
-# ---------------- PIE CHART ---------------- #
+
 st.subheader("📈 Emission Contribution")
 fig = px.pie(
     names=list(emissions.keys())[:-1],
@@ -108,7 +105,7 @@ fig = px.pie(
 fig.update_traces(textinfo='percent+label')
 st.plotly_chart(fig, use_container_width=True)
 
-# ---------------- GAUGE CHART ---------------- #
+
 st.subheader("🚦 Emission Level Indicator")
 
 gauge = go.Figure(go.Indicator(
@@ -127,7 +124,7 @@ gauge = go.Figure(go.Indicator(
 ))
 st.plotly_chart(gauge, use_container_width=True)
 
-# ---------------- SUGGESTIONS ---------------- #
+
 st.subheader("🌱 Smart Recommendations")
 
 if emissions["Total"] < 300:
@@ -150,7 +147,7 @@ if city2 != "None":
     st.subheader("🏙 City Comparison")
     st.bar_chart(compare_df)
 
-# ---------------- PERSONAL CALCULATOR ---------------- #
+
 st.subheader("🧮 Personal Carbon Calculator")
 
 col1, col2, col3 = st.columns(3)
@@ -170,7 +167,6 @@ if st.button("Calculate My Footprint"):
     total_personal = (elec*0.82 + fuel*2.31 + lpg*3 + waste_input*0.57 + air_input*0.115)
     st.success(f"🌍 Your Estimated Annual Carbon Footprint: {total_personal:.2f} kg CO₂e")
 
-# ---------------- DOWNLOAD OPTION ---------------- #
 st.subheader("📥 Download City Dataset")
 
 st.download_button(
