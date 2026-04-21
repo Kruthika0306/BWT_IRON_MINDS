@@ -9,11 +9,11 @@ As a result, organizations operate without visibility into their emissions and m
 Solution overview
 
 CarbonSense AI is a fully software-based carbon intelligence engine that:
- Accepts electricity and lifestyle related  data like transport , cooking, travel and waste,etc  (manual entry or CSV upload)
- Calculates carbon emissions using standard emission factors
- Analyzes usage patterns using lightweight AI models
- Predicts future carbon emissions
- Generates simple optimization suggestions
+• Accepts electricity and lifestyle related  data like transport , cooking, travel and waste,etc  (manual entry or CSV upload)
+• Calculates carbon emissions using standard emission factors
+• Analyzes usage patterns using lightweight AI models
+• Predicts future carbon emissions
+• Generates simple optimization suggestions
 
 System Architecture
 
