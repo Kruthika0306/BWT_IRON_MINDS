@@ -25,7 +25,7 @@ System Architecture
 The system follows a layered and modular architecture designed to transform raw electricity consumption data into actionable carbon intelligence using lightweight AI techniques.
 
 1️. User Input Layer
- This layer collects electricity consumption data through manual entry or CSV file upload.
+ This layer collects electricity and other consumption data through manual entry or CSV file upload.
  It eliminates the need for hardware sensors, making the system affordable and accessible for small businesses and organizations.
  
 2️. Data Processing Module
@@ -33,7 +33,7 @@ The system follows a layered and modular architecture designed to transform raw 
  This step ensures consistency, handles missing values, and prepares the data for carbon calculation and predictive modeling.
  
 3️. Carbon Calculation Engine
- This module converts energy usage into carbon emissions using the formula:
+ This module converts energy usage into carbon emissions using the formula: (for electricity )
  Carbon Emission (kg CO₂) = Electricity Usage (kWh) × Emission Factor
  The emission factor is based on regional grid standards.
  This transforms raw energy data into measurable environmental impact.
